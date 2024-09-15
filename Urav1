@@ -1,0 +1,15 @@
+program urav1;
+uses math;
+     var x, y:float;
+begin
+  writeln('Введите x: ');
+  readln(x);
+
+  y:= (exp(sin(x)) * cos( exp(ln(x)*3))) / ( (1+ln(sqrt( sqr(x) + 1 ))) * tan(sqr(x)) ) ;
+
+
+
+  writeln(y:8:3);
+
+  readln();
+end.
