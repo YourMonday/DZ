@@ -1,0 +1,54 @@
+program CaseOf;
+var zn:char;
+var y, x:real;
+
+begin
+
+  writeln('Введите x: ');
+  readln(x);
+
+  writeln('Введите число от 1 до 6');
+  writeln('Это будет выбор функции');
+  readln(zn);
+
+  case zn of
+  '1': begin
+       y:= x;
+       writeln('Y равен ', y:8:3);
+       end;
+  '2': begin
+       y:= -x;
+       writeln('Y равен ', y:8:3);
+       end;
+  '3': begin
+       y:= sqr(x);
+       writeln('Y равен ', y:8:3);
+       end;
+  '4': begin
+       if x>=0 then
+       begin
+       y:= sqrt(x);
+       writeln('Y равен ', y:8:3);
+       end
+       else writeln('X меньше нуля');
+       end;
+  '5': begin
+       y:= exp(ln(x)*3);
+       writeln('Y равен ', y:8:3);
+       end;
+  '6': begin
+       if x>0 then
+       begin
+           y:= 1/(sqrt(x));
+           writeln('Y равен ', y:8:3);
+       end
+       else writeln('X равен 0, деление на 0');
+       end;
+
+  else
+    writeln('Неправильный символ');
+  end;
+
+
+  readln();
+end.
