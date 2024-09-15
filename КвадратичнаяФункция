@@ -1,0 +1,53 @@
+program uravkvadrik;
+var a, b, c, D, x1, x2 : real;
+begin
+    writeln('Введите a (коффициет) квадротичной функции');
+    readln(a);
+
+    writeln('Введите b (коффициет) квадротичной функции');
+    readln(b);
+
+    writeln('Введите c (коффициет) квадротичной функции');
+    readln(c);
+
+    if (a=0) and (b=0) and (c=0)  then
+    begin
+      writeln('X любой');
+    end
+    else
+        begin
+        D:= sqr(b)-4*a*c;
+        if (D>0) then
+           begin
+           if (a>0) then
+              begin
+              x1 := (-b + sqrt(D)) /(2*a);
+              writeln('x1 = ', x1:8:3);
+
+              x2 := (-b - sqrt(D))/(2*a);
+              writeln('x2 = ', x2:8:3);
+              end
+           else
+               begin
+               writeln('Уже не квадратичная функция');
+               end
+           end
+        else if (D<0) then
+                begin
+                writeln('Нет решений');
+                end
+        else
+            begin
+            x1 := (-b + sqrt(D)) /(2*a);
+            writeln('x = ', x1:8:3);
+            end
+        end;
+
+
+
+
+    readln();
+
+
+
+end.
