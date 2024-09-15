@@ -1,0 +1,29 @@
+program project1;
+const N = 3;
+var mas: array[1..N] of integer;
+var i, j, r:integer;
+begin
+
+
+  for i:=0 to N-1 do
+  begin
+     writeln('Введите значение ', i , ' числа: ');
+     readln(mas[i]);
+  end;
+
+  for i:=1 to N-1 do
+      for j:=1 to N-i do
+      if (mas[j]>mas[j+1]) then
+         begin
+           r:= mas[j];
+           mas[j] := mas[j+1];
+           mas[j+1] := r;
+         end;
+
+  writeln('Максимальное число  ', mas[3]);
+  writeln('Минимальное число  ', mas[2]);
+
+
+
+  readln();
+end.
