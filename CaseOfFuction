@@ -8,7 +8,13 @@ begin
   readln(x);
 
   writeln('Введите число от 1 до 6');
-  writeln('Это будет выбор функции');
+  writeln('1) y:= x');
+  writeln('2) y:= -x');
+  writeln('3) y:= sqr(x)');
+  writeln('4) y:= sqrt(x)');
+  writeln('5) y:= exp(ln(x)*3)');
+  writeln('6) y:= 1/(sqrt(x))');
+
   readln(zn);
 
   case zn of
