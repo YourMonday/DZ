@@ -4,7 +4,7 @@ uses math;
 begin
   writeln('Введите x: ');
   readln(x);
-if ( (1+ln(sqrt( sqr(x) + 1 ))) * tan(sqr(x)) ) >0 then 
+if ( (1+ln(sqrt( sqr(x) + 1 ))) * tan(sqr(x)) ) <>0 then 
 
     begin
 y:= (exp(sin(x)) * cos( exp(ln(x)*3))) / ( (1+ln(sqrt( sqr(x) + 1 ))) * tan(sqr(x)) ) ;
