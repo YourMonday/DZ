@@ -1,11 +1,11 @@
 program project1;
-const N = 3;
+const N = 4;
 var mas: array[1..N] of integer;
 var i, j, r:integer;
 begin
 
 
-  for i:=0 to N-1 do
+  for i:=1 to N-1 do
   begin
      writeln('Введите значение ', i , ' числа: ');
      readln(mas[i]);
@@ -21,7 +21,7 @@ begin
          end;
 
   writeln('Максимальное число  ', mas[3]);
-  writeln('Минимальное число  ', mas[2]);
+  writeln('Минимальное число  ', mas[1]);
 
 
 
