@@ -1,0 +1,46 @@
+program rk1_2;
+uses math, SysUtils;
+var N: integer;
+var k:integer;
+var summik:real;
+  var checker1:boolean;
+    var zn:char;
+
+begin
+  k:=0;
+  summik:=0;
+  while true do begin
+
+     writeln('1 - Начало программы');
+     writeln('2 - выход');
+
+
+     readln(zn);
+
+     case zn of
+     '1': begin
+
+        while N<=0 do
+        begin
+        writeln('Введите N членов ряда');
+        readln(N);
+        end;
+        for k:=0 to N do
+           begin
+               try summik:= summik +  (  (2*k+1)/sqr(sqr(2*k+1)+1)  );
+
+               except writeln('Ошибка');
+               end;
+           end;
+          writeln('Сумма первых ', N,' членов рядов : ' ,summik:4:4);
+        end;
+
+
+
+     '2': exit;
+     end;
+  end;
+  readln();
+
+
+end.
