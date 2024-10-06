@@ -1,0 +1,59 @@
+program rk1;
+
+uses math, SysUtils, Classes;
+var y1, y2, x, A, B, H, valera  :real;
+var zn:char;
+var checker1 :boolean;
+begin
+  checker1 := false;
+
+  while (checker1=false) do begin
+   writeln();
+   writeln('1 - начало программы');
+   writeln('2 - выход');
+   readln(zn);
+      case zn of
+      '1': begin
+           x := 0;
+           y1:=0;
+           y2:=0;
+           valera:=0;
+
+           writeln('Даны функциии: ');
+           writeln('y1 = power(x, 2/3)');
+           writeln('y2 = (1/x) * cos(x)');
+           writeln('A<= x <=B');
+
+           writeln('Задайте первую границу A для x');
+           readln(A);
+
+           writeln('Задайте первую границу B для x');
+           readln(B);
+
+           writeln('Задайте шаг H для x');
+           readln(H);
+
+           x:=A;
+           while x<B do begin
+            try
+              y2:= (1/x) * cos(x);
+            except writeln('Ошибка'); break;
+            end;
+
+            try
+              y1:= power(x, 2/3);
+            except writeln('Ошибка');  break;
+            end;
+
+            if valera=0 then writeln('x y1 y2'); valera:=valera+1;
+            writeln(x:4:4, '|', y1:4:4,'|', y2:4:4);
+            x:=x+H;
+
+            end;
+
+           end;
+      '2': exit;
+
+    end;
+  end;
+end.
