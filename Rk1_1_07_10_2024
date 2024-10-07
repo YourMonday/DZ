@@ -1,0 +1,60 @@
+program rk1_1_07102024;
+uses math;
+var y1, y2, x, A, B, H:real;
+  zn:char;
+begin
+
+ while true do begin
+
+  writeln('1 - Начало');
+  writeln('2 - Выход');
+  readln(zn);
+
+  case zn of
+   '1': begin
+
+        writeln('Введите значение A (начало границы)');
+        readln(A);
+
+        writeln('Введите значение B (конец границы)');
+        readln(B);
+
+        while A>B do // Для того, чтобы если у нас тупой чел и вводит неправильно границы
+        begin
+        writeln('Введите значение A (начало границы)');
+        readln(A);
+
+        writeln('Введите значение B (конец границы)');
+        readln(B);
+        end;
+
+
+
+        writeln('Введите значение H (шаг)');
+        readln(H);
+
+        x:=A;
+
+        while x<=B do
+        begin
+          try y1:= power(x, 3/4); writeln('y1 = ', y1:4:4, ' при х = ', x:4:4); // попытайся делать то, то
+          except writeln('Ошибка в y1, при x = ', x:4:4);                   //если выдает ошибку, то делай, то то
+          end;
+
+          try y2:=(tan(x))/x; writeln('y2 = ', y2:4:4, ' при х = ', x:4:4); // попытайся делать то, то
+          except writeln('Ошибка в y2, при x = ', x:4:4);                   //если выдает ошибку, то делай, то то
+          end;
+
+          writeln(' ');
+          x:=x+H;
+        end;
+
+
+
+
+        end;
+
+   '2':exit;
+  end;
+ end;
+end.
