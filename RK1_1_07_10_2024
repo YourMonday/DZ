@@ -1,0 +1,65 @@
+program rk1_2_07102024;
+var N:integer;
+    zn:char;
+    a, b, c: integer;
+    i:integer;
+    summ:integer;
+    maxim:integer;
+    astr, bstr:string;
+    k:integer;
+begin
+
+  while true do begin
+     N:=0;
+     maxim:=-99999999;
+     k:=0;
+
+     writeln('1 - Начало');
+     writeln('2 - Выход');
+     readln(zn);
+
+     case zn of
+      '1': begin
+
+            while N<=0 do begin    // Чтобы проверялось, что N>0;
+               writeln('Введите целое значение N');
+               readln(N);
+            end;
+
+            for i:=1 to N do begin
+
+               if i=1 then begin
+               writeln('Введите число при N = ', i);
+               readln(c);
+               a:=c;
+               end
+               else begin
+                 writeln('Введите число при N = ', i);
+                 readln(c);
+                 b:=c;
+
+                 //writeln(a, '  ', b ); // Для понимая че вообще тут делаю
+                 Str(a, astr);//присвиваем к astr значение ТЕКСТА a (т.е число и текст это разные вещи; Есть символ 1 - это string, а есть 1 - это число)
+                 Str(b, bstr);
+
+                 if ((astr[length(astr)]='0') and (astr[length(astr)]='0')) then begin
+                 k:=k+1;
+                 summ:=a+b;
+                 if maxim<summ then maxim:= summ;
+
+                 end;
+
+                 a:=b;
+               end;
+
+            end;
+
+            writeln('Количество пар, которые оканчиваются на 0 (оба) : ', k);
+            writeln('Максимальная сумма из этих пар : ', maxim);
+
+           end;
+
+      '2': exit;
+     end;
+  end;
+end.
