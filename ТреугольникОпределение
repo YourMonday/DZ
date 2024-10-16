@@ -1,10 +1,31 @@
-program Treg;
-
-uses unit1;
+program treg;
 
  var x1, x2, x3, y1, y2, y3, a, b, c :real;
- var flag, pramik :boolean;
+ var flag, pramik, genii :boolean;
+   valerka:boolean;
+ var zn:char;
 begin
+     while true do begin
+     writeln('Начало - 1');
+     writeln('Выход - 2');
+     readln(zn);
+     case zn of
+     '1': begin
+
+     x1:=0;
+     x2:=0;
+     y3:=0;
+     y2:=0;
+     y3:=0;
+     a:=0;
+     b:=0;
+     c:=0;
+
+     pramik:=false;
+     valerka:=false;
+     flag:=false;
+     genii:=false;
+
      writeln('Введите x для точки А');
      readln(x1);
      writeln('Введите y для точки А');
@@ -25,10 +46,21 @@ begin
      a := sqrt(( sqr(x2-x1) + sqr(y2-y1) ));
      b := sqrt(( sqr(x3-x2) + sqr(y3-y2) ));
      c := sqrt(( sqr(x3-x1) + sqr(y3-y1) ));
-     writeln(a:8:3, b:8:3, c:8:3);
+     //writeln(a:8:3, b:8:3, c:8:3);
 
-     writeln();
-     writeln();
+     //writeln();
+     //writeln();
+
+     if (((x2 - x1)=0) or ((y2 - y1)=0)) then begin genii:=false; writeln('Неверный ввод') end
+     else genii:=true;
+
+
+     if (genii=true) and (((x3 - x1) / (x2 - x1) = (y3 - y1) / (y2 - y1))) then begin
+         valerka:=false;
+     end
+     else valerka:=true;
+
+     if (valerka=true) and (genii=true) then begin
 
      if a+b>=c then
         begin
@@ -36,7 +68,9 @@ begin
            begin
                if a+c>=b then
                   begin
-
+                      writeln();
+                      writeln();
+                      writeln();
                       writeln('Тругольник существует');
                       flag := true;
                   end
@@ -44,13 +78,14 @@ begin
         end
      else
      begin
+         writeln();
+         writeln();
+         writeln();
          writeln('Тругольник не сушествует');
          flag := false;
      end;
 
-     writeln();
-     writeln();
-     writeln();
+
 
      if (flag = true) then
         begin
@@ -62,7 +97,8 @@ begin
             else if ((a=b) or (a=c) or (b=c)) then
                    begin
                        writeln('Равнобедренный треугольник');
-                   end;
+                   end
+            else writeln('Все его стороны разные');
 
             if ((sqrt(sqr(a)+ sqr(c))) = b) then pramik:=true;
             if ((sqrt(sqr(b)+ sqr(c))) = a) then pramik:=true;
@@ -76,7 +112,13 @@ begin
             else
                 writeln('Не прямоугольный треугольник');
         end;
-
+     end
+     else writeln('Невозможно создать треугольник');
 
      readln();
+     end;
+
+     '2':exit;
+     end;
+     end;
 end.
